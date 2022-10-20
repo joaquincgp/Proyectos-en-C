@@ -5,7 +5,6 @@
  de mas de 8 helados se aplicara un decunto del 8%, y de mas de 12 helados el 10%. Si el cliente posee tarjeta de compra frecuente
  se aplicara un descuento del 5% adicional a la compra, sin importar el numero de productos  */
  
- /*Determinar el numero mayor y el numero menor de 6 numeros ingresados por teclado*/
  
 int cantidadHelados;
 int precioHelado = 1;
