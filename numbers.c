@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-
 /*Determinar el numero mayor y el menor entre los 
 6 distintos*/
 
@@ -28,7 +25,7 @@
       printf("Quinto numero (solo enteros): \n"); 
      scanf("%d", &n5); 
      printf("Sexto numero (solo enteros): \n"); 
-     scanf("%d", &n6); 
+     scanf("%d", &n6);
       
      if ((n1>=n2) && (n1>=n3) && (n1>=n4) && (n1>=n5) && (n1>=n6)){ 
          printf("%d es el mayor  \n", n1); 
