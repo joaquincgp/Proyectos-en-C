@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*Determinar el numero mayor y el menor entre 6 distintos
+/*Determinar el numero mayor y el menor entre los 
+6 distintos*/
 
 #include <stdio.h> 
 #include <conio.h> 
