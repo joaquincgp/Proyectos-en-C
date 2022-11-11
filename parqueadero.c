@@ -35,18 +35,21 @@ int main(int argc, char *argv[]) {
     	    hExtra = horasAdicionales - mEntrada;
     	    printf("Ha estado parqueado %i:%i horas \n", horasParqueo,hExtra);
 	    }
-	    if(minutosParqueo>0){
+	    if((minutosParqueo>0)&&(minutosParqueo<9)){
+		    printf("Ha estado parqueado %i:0%i horas \n", horasParqueo,minutosParqueo);
+		}
+	    else if(minutosParqueo>0){
             horasParqueo = hSalida - hEntrada;
 		    minutosParqueo = mSalida - mEntrada;
 		    printf("Ha estado parqueado %i:%i horas \n", horasParqueo,minutosParqueo);
 	    }
+	    
 	}
 	    horasParqueo++;
 		tarifa = ceil(horasParqueo) * 1.2;
-		
 		printf("Se le cobra por la hora o fraccion, es decir: %i horas \n", horasParqueo);
 		printf("El valor total de parqueo es de %f dolares \n", tarifa);
-
+	
 	
 	return 0;
 }
