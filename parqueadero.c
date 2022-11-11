@@ -15,6 +15,8 @@ float tarifa;
 int hExtra;
 int horasAdicionales;
 int residuo;
+int descuentotarjeta;
+float valortotal;
 
 int main(int argc, char *argv[]) {
 	printf("Bienvenido al parqueadero: \n");
@@ -22,6 +24,10 @@ int main(int argc, char *argv[]) {
 	scanf("%i:%i", &hEntrada, &mEntrada);
 	printf("Ingrese la hora de salida: \n");
 	scanf("%i:%i", &hSalida, &mSalida);
+	
+	if((hEntrada>=hSalida)&&(mEntrada>=mSalida)){
+	    printf("No es posible determinar el costo debido a una falta de coherencia");
+	}else{
 	horasParqueo = hSalida - hEntrada;
     minutosParqueo = mSalida - mEntrada;
     
@@ -43,6 +49,10 @@ int main(int argc, char *argv[]) {
 		    minutosParqueo = mSalida - mEntrada;
 		    printf("Ha estado parqueado %i:%i horas \n", horasParqueo,minutosParqueo);
 	    }
+	    else if(minutosParqueo=0){
+	        horasParqueo=(horasParqueo);
+	         printf("Ha estado parqueado %i:%i horas \n", horasParqueo,minutosParqueo);
+	    }
 	    
 	}
 	    horasParqueo++;
@@ -50,6 +60,16 @@ int main(int argc, char *argv[]) {
 		printf("Se le cobra por la hora o fraccion, es decir: %i horas \n", horasParqueo);
 		printf("El valor total de parqueo es de %f dolares \n", tarifa);
 	
+	printf("Si tiene tarjeta de descuento digite 1, de lo contrario 0:  \n");
+	scanf("%i",&descuentotarjeta);
 	
+	if (descuentotarjeta ==1){
+	valortotal=(tarifa*0.65);
+	printf("El valor final a pagar es: %f dolares \n", valortotal);
+	}else if (descuentotarjeta==2){
+	    valortotal== tarifa;
+	    printf("El valor final a pagar es: %f dolares \n", valortotal);
+	}
+	}
 	return 0;
 }
