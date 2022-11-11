@@ -22,29 +22,29 @@ int main(int argc, char *argv[]) {
 	scanf("%i:%i", &hEntrada, &mEntrada);
 	printf("Ingrese la hora de salida: \n");
 	scanf("%i:%i", &hSalida, &mSalida);
-	
+	horasParqueo = hSalida - hEntrada;
+    minutosParqueo = mSalida - mEntrada;
+    
 	if((hEntrada>=0)&&(hEntrada<=24)&&(hSalida>=0)&&(hSalida<=24)){
 		printf("Su hora de ingreso: %i:%i horas \n", hEntrada, mEntrada);
 		printf("Su hora de salida: %i:%i horas \n", hSalida, mSalida);
-		horasParqueo = hSalida - hEntrada;
-		minutosParqueo = mSalida - mEntrada;
-		
+
 	    if(minutosParqueo<0){
-	        horasAdicionales = hSalida + 60;
+	        horasAdicionales = mSalida + 60;
     	    horasParqueo = horasParqueo - 1;
-    	    hExtra = horasAdicionales - hEntrada;
+    	    hExtra = horasAdicionales - mEntrada;
     	    printf("Ha estado parqueado %i:%i horas \n", horasParqueo,hExtra);
-    	        if(hExtra>60){
-    	        residuo = hExtra / 60;
-    	        horasParqueo = horasParqueo + residuo;
+	    }
+	    if(minutosParqueo>0){
+            horasParqueo = hSalida - hEntrada;
+		    minutosParqueo = mSalida - mEntrada;
+		    printf("Ha estado parqueado %i:%i horas \n", horasParqueo,minutosParqueo);
 	    }
 	}
-		
-		tarifa = ceil(horasParqueo) * 1.2;
+		tarifa = ceil(horasParqueo + 1) * 1.2;
+		printf("Se le cobra por la hora o fraccion, es decir: %i horas \n", horasParqueo);
 		printf("El valor total de parqueo es de %f dolares \n", tarifa);
-		printf("Ha estado parqueado %i horas \n", horasParqueo);
-		
-	}
+
 	
 	return 0;
 }
