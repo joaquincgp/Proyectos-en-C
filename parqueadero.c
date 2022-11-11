@@ -41,7 +41,9 @@ int main(int argc, char *argv[]) {
 		    printf("Ha estado parqueado %i:%i horas \n", horasParqueo,minutosParqueo);
 	    }
 	}
-		tarifa = ceil(horasParqueo + 1) * 1.2;
+	    horasParqueo++;
+		tarifa = ceil(horasParqueo) * 1.2;
+		
 		printf("Se le cobra por la hora o fraccion, es decir: %i horas \n", horasParqueo);
 		printf("El valor total de parqueo es de %f dolares \n", tarifa);
 
