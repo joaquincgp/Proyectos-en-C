@@ -20,34 +20,37 @@ float sueldo;
 int main(int argc, char *argv[]) {
 	printf("Cual es el salario basico del trabajador: \n");
 	scanf("%f", &sueldo);
-	printf("Quiere ingresar una venta? 1 para SI y 2 para NO: \n");
-	scanf("%i", &nuevaVenta);
-	monto = 0;
-	
-	
-	while(nuevaVenta==1){
-		printf("Ingrese las ganancias en ventas, para calcular las comisiones: \n" );
-		scanf("%f", &ventas);
-		contador = 0;
-		if((ventas>=100)&&(ventas<=200)){
-			caso = 1;
-			monto += calcularComisiones(1);	
-			contador++;
-		}else if((ventas>200)&&(ventas<=300)){
-			caso = 2;
-			monto += calcularComisiones(2);
-			contador++;
-		}else if(ventas>300){
-			caso = 3;
-			monto += calcularComisiones(3);
-			contador++;
-		}
-		printf("Quiere ingresar otra venta?: \n");
+	if(sueldo>=0){
+		printf("Quiere ingresar una venta? 1 para SI y 2 para NO: \n");
 		scanf("%i", &nuevaVenta);
+		monto = 0;
+		contador = 0;
+		while(nuevaVenta==1){
+			printf("Ingrese las ganancias en ventas, para calcular las comisiones: \n" );
+			scanf("%f", &ventas);
+			if((ventas>=100)&&(ventas<=200)){
+				caso = 1;
+				monto += calcularComisiones(1);	
+				contador++;
+			}else if((ventas>200)&&(ventas<=300)){
+				caso = 2;
+				monto += calcularComisiones(2);
+				contador++;
+			}else if(ventas>300){
+				caso = 3;
+				monto += calcularComisiones(3);
+				contador++;
+			}
+			printf("Quiere ingresar otra venta?: \n");
+			scanf("%i", &nuevaVenta);
 	}
 	
 	total = monto + sueldo;
 	printf("El total que recibe el trabajador es de %f dolares, acumulando una cantidad de %f dolares en comisiones por haber tenido un total de %i ventas \n", total, monto,contador);
+	}else{
+		printf("Error. Ejecute de nuevo e ingrese un salario superior a 0 dolares");
+	}
+	
 	return 0;
 }
 
@@ -59,15 +62,15 @@ float calcularComisiones(int caso){
 		switch(caso){
 			case 1:
 				comisiones = 0.1;
-				acumulado = ventas + comisiones*ventas;
+				acumulado = comisiones*ventas;
 				break;
 			case 2:
 				comisiones = 0.12;
-				acumulado = ventas + comisiones*ventas;
+				acumulado = comisiones*ventas;
 				break;
 			case 3:
 				comisiones = 0.15;
-				acumulado = ventas + comisiones*ventas;
+				acumulado = comisiones*ventas;
 				break;			
 		}
 		return acumulado;
