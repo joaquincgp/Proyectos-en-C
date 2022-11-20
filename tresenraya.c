@@ -26,10 +26,9 @@ int main ()
 	llave=1;
 	printf("X corresponde al primer jugador y O al segundo \n");
 
-	contador = 0;
 
-while(contador<=9)
-{
+
+while(contador<=100000){
 	printf("Jugador 1, es tu turno: ");
 	scanf("%s",&aux);
 	if(aux1==aux){
@@ -43,6 +42,8 @@ while(contador<=9)
 			condicion = false;
 		}
 	}
+	
+	
 	comparar (aux,'X');
 	printf ("%c  |  %c  |  %c\n",a,b,c);	
 	printf ("---------------\n");
