@@ -3,10 +3,11 @@
 #include <stdbool.h>
 
 char a='a', b='b', c='c', d='d', e='e', f='f', g='g', h='h', i='i';
-int contador=0;
+
 int llave=1;
 char aux;
 char aux1;
+int contador;
 void comparar(char aux,char j);
 void comparar2(char aux1,char p);
 void ganador(char a1,char b1, char c1, char d1, char e1, char f1, char g1, char h1, char i1, char signo);
@@ -16,16 +17,18 @@ bool condicion2;
 
 int main ()
 {
-printf ("TRES EN RAYA\n");
-printf ("a  |  b  |  c\n");	
-printf ("---------------\n");
-printf ("d  |  e  |  f\n");
-printf ("---------------\n");
-printf ("g  |  h  |  i\n");
-llave=1;
-printf("X corresponde al primer jugador y O al segundo \n");
+	printf ("TRES EN RAYA\n");
+	printf ("a  |  b  |  c\n");	
+	printf ("---------------\n");
+	printf ("d  |  e  |  f\n");
+	printf ("---------------\n");
+	printf ("g  |  h  |  i\n");
+	llave=1;
+	printf("X corresponde al primer jugador y O al segundo \n");
 
-while (contador<=9)
+	contador = 0;
+
+while(contador<=9)
 {
 	printf("Jugador 1, es tu turno: ");
 	scanf("%s",&aux);
@@ -66,7 +69,6 @@ while (contador<=9)
 	}
 	
 	comparar2 (aux1,'O');
-	
 	printf ("%c  |  %c  |  %c\n",a,b,c);	
 	printf ("---------------\n");
 	printf ("%c  |  %c  |  %c\n",d,e,f);
@@ -91,7 +93,7 @@ return 0;
 
 //Reemplazar las fichas en espacios para que no se vuelvan a usar
 void comparar(char aux,char x){
-	switch (aux){
+	switch(aux){
 		case 'a':
 			a=x;
 			break;
@@ -169,13 +171,13 @@ void ganador(char a1,char b1, char c1, char d1, char e1, char f1, char g1, char 
 	{
 		if(signo=='X'){
 			printf ("\nEl jugador 1 gana\n");
-			contador=9;
+			system("pause");
 			llave=0; //no hay empate
 		}
 		else{
 			if (signo=='O'){
 				printf ("\n El jugador 2 gana\n");
-				contador=9;
+				system("pause");
 				llave=0; //no hay empate
 			}
 		}
