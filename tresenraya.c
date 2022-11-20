@@ -1,14 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 char a='a', b='b', c='c', d='d', e='e', f='f', g='g', h='h', i='i';
 int contador=0;
 int llave=1;
 char aux;
+char aux1;
 void comparar(char aux,char j);
 void comparar2(char aux1,char p);
 void ganador(char a1,char b1, char c1, char d1, char e1, char f1, char g1, char h1, char i1, char signo);
-char aux1;
+
+bool condicion;
+bool condicion2;
 
 int main ()
 {
@@ -25,8 +29,18 @@ while (contador<=9)
 {
 	printf("Jugador 1, es tu turno: ");
 	scanf("%s",&aux);
+	if(aux1==aux){
+		condicion = true;	
+	}
+	while(condicion==true){
+		printf("Ingresa una posicion que no este ocupada\n");
+		printf("Jugador 1, tu turno de nuevo:\n");
+		scanf("%s", &aux);
+		if(aux!=aux1){
+			condicion = false;
+		}
+	}
 	comparar (aux,'X');
-	
 	printf ("%c  |  %c  |  %c\n",a,b,c);	
 	printf ("---------------\n");
 	printf ("%c  |  %c  |  %c\n",d,e,f);
@@ -39,7 +53,20 @@ while (contador<=9)
 	printf("\n");
 	printf("Jugador 2, tu turno: \n");
 	scanf("%s",&aux1);
+		if(aux1==aux){
+		condicion = true;	
+		}
+		while(condicion==true){
+			printf("Ingresa una posicion que no este ocupada\n");
+			printf("Jugador 2, tu turno de nuevo:\n");
+			scanf("%s", &aux1);
+				if(aux!=aux1){
+					condicion = false;
+				}
+	}
+	
 	comparar2 (aux1,'O');
+	
 	printf ("%c  |  %c  |  %c\n",a,b,c);	
 	printf ("---------------\n");
 	printf ("%c  |  %c  |  %c\n",d,e,f);
