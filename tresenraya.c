@@ -174,12 +174,14 @@ void ganador(char a1,char b1, char c1, char d1, char e1, char f1, char g1, char 
 			printf ("\nEl jugador 1 gana\n");
 			system("pause");
 			llave=0; //no hay empate
+			contador = 10;
 		}
 		else{
 			if (signo=='O'){
 				printf ("\n El jugador 2 gana\n");
 				system("pause");
 				llave=0; //no hay empate
+				contador = 10;
 			}
 		}
 	}
