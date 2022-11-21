@@ -1,77 +1,175 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
-/* Implemente el juego 3 en raya. Considerar que se tendran 2 jugadores y que cada casillero esta denontado por una letra
-Calcular el sueldo final de un vendedor considerando su sueldo basico y las comisiones por venta. Las comsiiones son 
-en base al monto de cada venta considerando: A(100-200) comision es 10%, B entre (201-300) comision es 12% y C (>301) 15%. 
-Sueldo basico y numero de ventas ingreado por teclado*/
+char a='a', b='b', c='c', d='d', e='e', f='f', g='g', h='h', i='i';
+int contador;
+int llave;
+char aux;
+char aux1;
+void comparar(char aux,char j);
+void comparar2(char aux1,char p);
+void ganador(char a1,char b1, char c1, char d1, char e1, char f1, char g1, char h1, char i1, char signo);
 
-//Variables
-float sueldo;
-	float ventas;
-	float total;
-	int caso;
-	int nuevaVenta;
-	float calcularComisiones(int caso);
-	float monto;
-	int contador;
-	
-//Proceso
-int main(int argc, char *argv[]) {
-	printf("Cual es el salario basico del trabajador: \n");
-	scanf("%f", &sueldo);
-	if(sueldo>=0){
-		printf("Quiere ingresar una venta? 1 para SI y 2 para NO: \n");
-		scanf("%i", &nuevaVenta);
-		monto = 0;
-		contador = 0;
-		while(nuevaVenta==1){
-			printf("Ingrese las ganancias en ventas, para calcular las comisiones: \n" );
-			scanf("%f", &ventas);
-			if((ventas>=100)&&(ventas<=200)){
-				caso = 1;
-				monto += calcularComisiones(1);	
-				contador++;
-			}else if((ventas>200)&&(ventas<=300)){
-				caso = 2;
-				monto += calcularComisiones(2);
-				contador++;
-			}else if(ventas>300){
-				caso = 3;
-				monto += calcularComisiones(3);
-				contador++;
+bool condicion;
+bool condicion2;
+
+int main(){
+	printf ("TRES EN RAYA\n");
+	printf ("a  |  b  |  c\n");	
+	printf ("---------------\n");
+	printf ("d  |  e  |  f\n");
+	printf ("---------------\n");
+	printf ("g  |  h  |  i\n");
+
+	printf("X corresponde al primer jugador y O al segundo \n");
+	llave=1;
+	while(contador<=9){
+		printf("Jugador 1, es tu turno: ");
+		scanf("%s",&aux);
+		//Error si se quiere ingresar posicion ya usada
+		if(aux1==aux){
+			condicion = true;	
+		}
+		while(condicion==true){
+			printf("Ingresa una posicion que no este ocupada\n");
+			printf("Jugador 1, tu turno de nuevo:\n");
+			scanf("%s", &aux);
+			if(aux!=aux1){
+				condicion = false;
 			}
-			printf("Quiere ingresar otra venta?: \n");
-			scanf("%i", &nuevaVenta);
+		}
+		
+		
+		comparar(aux,'X');
+		printf ("%c  |  %c  |  %c\n",a,b,c);	
+		printf ("---------------\n");
+		printf ("%c  |  %c  |  %c\n",d,e,f);
+		printf ("---------------\n");
+		printf ("%c  |  %c  |  %c\n",g,h,i);
+		//En caso de que el ganador sea el numero 1
+		ganador(a,b,c,d,e,f,g,h,i,'X');
+		
+		
+		printf("\n");
+		printf("Jugador 2, tu turno: \n");
+		scanf("%s",&aux1);
+		if(aux1==aux){
+			condicion = true;	
+		}
+			while(condicion==true){
+				printf("Ingresa una posicion que no este ocupada\n");
+				printf("Jugador 2, tu turno de nuevo:\n");
+				scanf("%s", &aux1);
+					if(aux!=aux1){
+						condicion = false;
+					}
+		}
+		
+		comparar2(aux1,'O');
+		printf ("%c  |  %c  |  %c\n",a,b,c);	
+		printf ("---------------\n");
+		printf ("%c  |  %c  |  %c\n",d,e,f);
+		printf ("---------------\n");
+		printf ("%c  |  %c  |  %c\n",g,h,i);
+		//En caso de que el ganador sea el jugador 2
+		ganador(a,b,c,d,e,f,g,h,i,'O');
 	}
 	
-	total = monto + sueldo;
-	printf("El total que recibe el trabajador es de %f dolares, acumulando una cantidad de %f dolares en comisiones por haber tenido un total de %i ventas \n", total, monto,contador);
-	}else{
-		printf("Error. Ejecute de nuevo e ingrese un salario superior a 0 dolares");
+	if(llave==1){
+		printf("No hay ganadores, EMPATE");
+		system("pause");
 	}
 	
-	return 0;
+return 0;
 }
 
 
-
-float calcularComisiones(int caso){
-	float comisiones;
-	float acumulado;
-		switch(caso){
-			case 1:
-				comisiones = 0.1;
-				acumulado = comisiones*ventas;
-				break;
-			case 2:
-				comisiones = 0.12;
-				acumulado = comisiones*ventas;
-				break;
-			case 3:
-				comisiones = 0.15;
-				acumulado = comisiones*ventas;
-				break;			
-		}
-		return acumulado;
+//Reemplazar las fichas en espacios para que no se vuelvan a usar
+void comparar(char aux,char x){
+	switch(aux){
+		case 'a':
+			a=x;
+			break;
+		case 'b':
+			b=x;
+			break;
+		case 'c':
+			c=x;
+			break;
+		case 'd':
+			d=x;
+			break;
+	    case 'e':
+			e=x;
+			break;
+		case 'f':
+			f=x;
+			break;
+		case 'g':
+			g=x;
+			break;
+		case 'h':
+			h=x;
+			break;
+		case 'i':
+			i=x;
+			break;
+		default:
+			printf ("\nLa letra que se ingreso es invalida\n");			
 	}
+}
+void comparar2 (char aux1,char o){
+  switch (aux1){
+	case 'a':
+		a=o;
+		break;
+	case 'b':
+		b=o;
+		break;
+	case 'c':
+		c=o;
+		break;
+	case 'd':
+		d=o;
+		break;
+	case 'e':
+		e=o;
+		break;
+	case 'f':
+		f=o;
+		break;
+	case 'g':
+		g=o;
+		break;
+	case 'h':
+		h=o;
+		break;
+	case 'i':
+		i=o;
+		break;
+	default:
+		printf("\nLa letra que se ingreso es invalida\n");  //cede el turno al siguiente
+	}
+}
+
+
+//Obtener ganador
+void ganador(char a1,char b1, char c1, char d1, char e1, char f1, char g1, char h1, char i1, char signo){
+	if(a1==signo && b1==signo && c1==signo || d1==signo && e1==signo && f1==signo || g1==signo && h1==signo && i1==signo || a1==signo && e1==signo && i1==signo || g1==signo && e1==signo && c1==signo || a1==signo && d1==signo && g1==signo || b1==signo && e1==signo && h1==signo || c1==signo && f1==signo && i1==signo)
+	{
+		if(signo=='X'){
+			printf ("\nEl jugador 1 gana. Gracias por jugar\n");
+			system("pause");
+			llave=0; //no hay empate
+			contador = 10;
+		}
+		else if(signo=='O'){
+				printf ("\n El jugador 2 gana. Gracias por jugar\n");
+				system("pause");
+				llave=0; //no hay empate
+				contador = 10;
+			}
+					
+	}
+}
