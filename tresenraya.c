@@ -28,7 +28,7 @@ int main ()
 
 
 
-while(contador<=100000){
+while(contador<=9){
 	printf("Jugador 1, es tu turno: ");
 	scanf("%s",&aux);
 	if(aux1==aux){
