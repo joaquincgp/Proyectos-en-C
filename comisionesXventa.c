@@ -20,7 +20,7 @@ float sueldo;
 int main(int argc, char *argv[]) {
 	printf("Cual es el salario basico del trabajador: \n");
 	scanf("%f", &sueldo);
-	if(sueldo>=0){
+	if(sueldo>0){
 		printf("Quiere ingresar una venta? 1 para SI y 2 para NO: \n");
 		scanf("%i", &nuevaVenta);
 		monto = 0;
