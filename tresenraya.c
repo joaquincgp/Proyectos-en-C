@@ -2,9 +2,7 @@
 #include<stdio.h>
 #include<conio.h>
 #include <stdbool.h>
-//Calcular el suedo final de un vendedor, considerar su sueldo basico y las comisiones correctas, las comisiones son en base al punto de cada venta
-//considerando 3 categorias, entre 1) 100 a 200, comisiones del 10 % entre 201 a 300 12% y del 301 en adelante es del 13%, no esxiste numero fijo de ventas, y el monto de suelto basico,
-//es ingresado
+//Tres en raya
 char a='a';
 char b='b';
 char c='c';
