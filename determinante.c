@@ -7,7 +7,7 @@ int det;
     
 
     
-int m_d[3][3] = {{3,4,5}};
+int m_d[3][3];
 
 
 int main(int argc, char *argv[]){
