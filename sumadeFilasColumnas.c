@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int m, n;
+int m, n, u, w;
 int main()
 {
     printf("Ingrese el numero de filas: \n");
@@ -10,12 +10,23 @@ int main()
     
     int matriz[m][n];
     
-    
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
+    int i, j, u, w;
+    for ( i = 0; i < m; i++) {
+        for (j = 0; j < n; j++) {
             printf("Ingrese el elemento [%i][%i]: ", i, j);
             scanf("%i", &matriz[i][j]);
         }
+    }
+    
+    printf("\n");
+    printf("Esta es su matriz: \n");
+    
+    //Imprimir matriz
+    for (w = 0; w < m; w++) {
+        for (u = 0; u < n; u++) {
+            printf("%i \t", matriz[w][u]);
+        }
+         printf("\n");
     }
     
     printf("\n");
@@ -25,8 +36,9 @@ int main()
     int sumC[n];
 
     //Vector columnas
-    for (int u = 0; u < n ; u++) {
-        for (int w = 0; w < m; w++){
+     for (u = 0; u < n ; u++) {
+     	sumC[u] = 0;
+        for (w = 0; w < m; w++){
             sumC[u] += matriz[w][u];
         }
         printf("Suma de la columna %i: %i \n", u, sumC[u]);
@@ -35,8 +47,9 @@ int main()
     printf("\n");
     
     //Vector filas
-     for (int w = 0; w < m ; w++) {
-        for (int u = 0; u < n; u++){
+     for (w = 0; w < m ; w++) {
+     	sumF[w] = 0;
+        for (u = 0; u < n; u++){
             sumF[w] += matriz[w][u];
         }
         printf("Suma de la fila %i: %i \n", w, sumF[w]);
