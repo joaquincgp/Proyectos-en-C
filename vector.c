@@ -226,7 +226,7 @@ printf("el tamaño del vector es: %d \n", longitud);
 
     // Imprime mayor y menor
     printf("El mayor vector es %lf en el indice %d\n", max_vector, max_index);
-    printf("The minimum vector is %lf en el indice %d\n", min_vector, min_index);
+    printf("El menor vector es %lf en el indice %d\n", min_vector, min_index);
 
     return 0;
 }
